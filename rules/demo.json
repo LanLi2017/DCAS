@@ -1,0 +1,41 @@
+[
+  {
+    "type": "rowCond",
+    "cond": {
+      "left": "sex",
+      "op": "isType",
+      "right": "string"
+    }
+  },
+  {
+    "type": "colDep",
+    "fromCol": ["state", "city", "address"],
+    "toCol": "zipCode"
+  },
+  {
+    "type": "rowCond",
+    "cond": {
+      "op": "if",
+      "cond": {
+        "left": {"op":  "getCol", "name":  "sex"},
+        "op": "eq",
+        "right": "female"
+      },
+      "check": {
+        "left": {"op": "getCol", "name":  "relationship"},
+        "op": "eq",
+        "right": "husband"
+      }
+    }
+  },
+  {
+  "type": "rowCond",
+  "cond": {
+    "left": "phone",
+    "op": "regex",
+    "right": "\\(\\d{3}\\)\\d{3}\\-\\d{4}"
+  }
+  }
+
+
+]
